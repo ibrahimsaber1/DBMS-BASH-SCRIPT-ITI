@@ -1,6 +1,7 @@
 #!/bin/bash
 
 connect_to_database() {
+    echo "Connect to Database"
     read -p "Enter database name: " db_name
     if [ -d "$db_name" ]; then
         echo "Connected to database $db_name"
@@ -8,8 +9,8 @@ connect_to_database() {
     else
         echo "Database $db_name does not exist!"
     fi
-}
 
+}
 connected_db_menu() {
     local db_name=$1
     while true; do
@@ -37,3 +38,5 @@ connected_db_menu() {
         esac
     done
 }
+
+connect_to_database

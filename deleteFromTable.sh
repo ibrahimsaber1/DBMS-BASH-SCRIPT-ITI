@@ -1,13 +1,37 @@
 #!/bin/bash
 
 delete_from_table() {
-    local db_name=$1
-    read -p "Enter table name to delete from: " table_name
-    if [ -f "$db_name/$table_name" ]; then
-        read -p "Enter the row number to delete: " row_number
-        sed -i "${row_number}d" "$db_name/$table_name"
-        echo "Row $row_number deleted from table $table_name in database $db_name."
+    echo "Delete From Table"
+    echo "Available tables:"
+    ls *.table 2>/dev/null
+    echo "Enter the table name to delete from:"
+    read table_name
+
+    if [ -f "$table_name.table" ]; then
+        echo "Current data in $table_name:"
+        
+        # Display the table with row numbers
+        nl -w 3 -s '. ' "$table_name.table"
+        
+        echo "Enter the row number to delete:"
+        read row_number
+        
+
+        # Confirm deletion
+        echo "Are you sure you want to delete row $row_number? (yes/no)"
+        read confirmation
+        
+        if [ "$confirmation" == "yes" ]; then
+            # Delete the specified row
+            sed -i "${row_number}d" "$table_name.table"
+            echo "Row $row_number has been deleted from $table_name."
+        else
+            echo "Deletion canceled."
+        fi
     else
-        echo "Table $table_name does not exist in database $db_name!"
+        echo "Table $table_name does not exist."
     fi
+
 }
+
+delete_from_table

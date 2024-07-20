@@ -1,6 +1,7 @@
 #!/bin/bash
 
 insert_into_table() {
+    echo "Insert into Table"
     echo "Available tables:"
     ls *.table 2>/dev/null
     echo "Enter the table name to insert into:"
@@ -69,7 +70,9 @@ insert_into_table() {
     else
         echo "Table $table_name does not exist."
     fi
-}
+
 
 # Call the function
 insert_into_table
+
+}
