@@ -3,7 +3,7 @@
 connect_to_database() {
     echo "Connecting to Database"
     read -p "Enter database name: " db_name
-    if [ -d "$db_name" ]; then
+    if [ -d "./databases/$db_name"  ]; then
         echo "Connected to database $db_name"
         connected_db_menu $db_name
     else
