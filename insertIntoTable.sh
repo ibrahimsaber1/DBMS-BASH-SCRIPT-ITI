@@ -3,20 +3,37 @@
 insert_into_table() {
     echo "Insert into Table"
     echo "Available tables:"
-    ls *.table 2>/dev/null
     
-    # Check if there are no tables available
-    if [ $? -ne 0 ]; then
+    # Check if there are any tables available
+    if ! ls *.table 2>/dev/null; then
         echo "No tables found."
         return
     fi
 
-    echo "Enter the table name to insert into:"
-    read table_name
+    read -p "Enter the table name to insert into: " table_name
+    table_name=$(echo "$table_name" | xargs)  # Trim leading/trailing spaces
+
+    # Check if the table name is empty
+    if [ -z "$table_name" ]; then
+        echo "Table name cannot be empty."
+        return
+    fi
+
+    # Validate table name
+    if [[ "$table_name" =~ [^a-zA-Z0-9_] ]]; then
+        echo "Invalid table name. Only alphanumeric characters and underscores are allowed."
+        return
+    fi
 
     if [ -f "$table_name.table" ]; then
         # Read the schema from the table file
         schema=$(head -n 1 "$table_name.table")
+
+        if [ -z "$schema" ]; then
+            echo "Table $table_name does not have a valid schema."
+            return
+        fi
+
         IFS=',' read -r -a columns <<< "$schema"
         
         # Read the current data from the table file
