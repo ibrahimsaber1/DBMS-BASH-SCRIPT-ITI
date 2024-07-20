@@ -6,6 +6,7 @@ source ./dropDataBase.sh
 source ./dropTable.sh
 source ./insertIntoTable.sh
 source ./deleteFromTable.sh
+source ./createDataBase.sh
 
 # Main Menu Function
 main_menu() {
@@ -31,13 +32,13 @@ main_menu() {
 }
 
 # Placeholder Functions for create_database and list_databases
-create_database() {
-    echo "Create Database"
-}
+# create_database() {
+#     echo "Create Database"
+# }
 
-list_databases() {
-    echo "List Databases"
-}
+# list_databases() {
+#     echo "List Databases"
+# }
 
 # Start the main menu
 main_menu
