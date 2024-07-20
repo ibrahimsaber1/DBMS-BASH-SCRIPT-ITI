@@ -4,6 +4,13 @@ insert_into_table() {
     echo "Insert into Table"
     echo "Available tables:"
     ls *.table 2>/dev/null
+    
+    # Check if there are no tables available
+    if [ $? -ne 0 ]; then
+        echo "No tables found."
+        return
+    fi
+
     echo "Enter the table name to insert into:"
     read table_name
 
@@ -70,9 +77,8 @@ insert_into_table() {
     else
         echo "Table $table_name does not exist."
     fi
-
+}
 
 # Call the function
 insert_into_table
 
-}
