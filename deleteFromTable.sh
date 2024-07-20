@@ -16,7 +16,19 @@ delete_from_table() {
         echo "Enter the row number to delete:"
         read row_number
         
-
+        # Validate that the row number is a positive integer
+        if [[ ! "$row_number" =~ ^[0-9]+$ ]] || [ "$row_number" -lt 1 ]; then
+            echo "Invalid row number. Please enter a positive integer."
+            return
+        fi
+        
+        # Check if the row number is within the range of existing rows
+        total_rows=$(wc -l < "$table_name.table")
+        if [ "$row_number" -gt "$total_rows" ]; then
+            echo "Row number $row_number is out of range. The table has $total_rows rows."
+            return
+        fi
+        
         # Confirm deletion
         echo "Are you sure you want to delete row $row_number? (yes/no)"
         read confirmation
