@@ -1,12 +1,12 @@
 #!/bin/bash
 
 # Source the individual function scripts
-source ./connectToDataBase.sh
-source ./dropDataBase.sh
-source ./dropTable.sh
-source ./insertIntoTable.sh
-source ./deleteFromTable.sh
-source ./createDataBase.sh
+source ./options/connectToDataBase.sh
+source ./options/dropDataBase.sh
+source ./options/dropTable.sh
+source ./options/insertIntoTable.sh
+source ./options/deleteFromTable.sh
+source ./options/createDataBase.sh
 
 # Main Menu Function
 main_menu() {
