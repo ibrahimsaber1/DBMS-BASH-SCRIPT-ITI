@@ -1,3 +1,5 @@
+#!/bin/bash
+
 drop_table() {
     echo -e "\nDrop Table\n"
     read -p "Please enter the name of the table: " table_name
@@ -11,15 +13,15 @@ drop_table() {
         drop_table # call the function again
 
     # Check if the table exists
-    elif [ -f "$table_name" ]; then
+    elif [ -f "$table_name.table" ]; then
         # Confirm deletion
         echo -e "\nAre you sure you want to drop the table '$table_name'? This action cannot be undone. (yes/no)"
         read confirmation
         confirmation=$(echo "$confirmation" | tr '[:upper:]' '[:lower:]')  # Convert to lowercase
         
         if echo "$confirmation" | grep -iq "^yes$"; then
-            rm "$table_name" 2>/dev/null
-            rm ./.metaData_"$table_name" 2>/dev/null
+            rm "$table_name.table" 2>/dev/null
+            rm "metaData_$table_name" 2>/dev/null
             echo -e "\nTable dropped successfully\n"
         else
             echo -e "\nTable drop canceled.\n"

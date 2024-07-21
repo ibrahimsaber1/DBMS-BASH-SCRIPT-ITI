@@ -1,7 +1,0 @@
-general : Table Name : koky
-general : Number of Columns : 3
-primary key : 1 : id : int
-id:Not primary key : 2 : unit number : int
-unit number:Not primary key : 3 : test : str
-test:
-=================

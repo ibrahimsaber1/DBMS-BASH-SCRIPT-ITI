@@ -1,6 +1,0 @@
-general : Table Name : t6
-general : Number of Columns : 4
-primary key : 1 : id : int
-Not primary key : 2 : product name : str
-Not primary key : 3 : price : int
-Not primary key : 4 : quantity : int
