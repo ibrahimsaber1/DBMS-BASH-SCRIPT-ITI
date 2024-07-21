@@ -65,7 +65,7 @@ insert_into_table() {
             esac
             
             # Check if the column is a primary key and ensure it's unique
-            if [[ "$col" == *"primary key"* ]]; then
+            if grep -q "primary key : [0-9] : $col_name : $col_type" "metaData_$table_name"; then
                 duplicate=false
                 for line in $data_lines; do
                     existing_value=$(echo $line | cut -d':' -f$((${#new_data[@]} + 1)))
