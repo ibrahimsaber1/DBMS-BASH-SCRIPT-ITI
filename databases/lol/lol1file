@@ -1,8 +1,0 @@
-general : Table Name : lol1file
-general : Number of Columns : 4
-primary key : 1 : id : int
-id:Not primary key : 2 : name : str
-name:Not primary key : 3 : age : int
-age:Not primary key : 4 : job : str
-job:
-=================
