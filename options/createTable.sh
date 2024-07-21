@@ -41,11 +41,15 @@ create_table() {
                 echo -e "The first column is the primary key and its data type is int by default"
                 echo -e "===================================="
                 read -p "Enter column $index name: " colname
+                # Replace spaces with underscores in column name
+                colname=$(echo "$colname" | tr ' ' '_')
                 echo "primary key : $index : $colname : int" >> "metaData_$table_name"
                 printf "$colname:" >> "$table_name.table"
             else
                 echo ""
                 read -p "Enter column $index name: " colname
+                # Replace spaces with underscores in column name
+                colname=$(echo "$colname" | tr ' ' '_')
                 echo ""
                 echo -e "Type of column $colname: "
                 select datatype in "int" "str"; do

@@ -1,0 +1,7 @@
+general : Table Name : t1
+general : Number of Columns : 5
+primary key : 1 : id : int
+Not primary key : 2 : tech_name : str
+Not primary key : 3 : phone : int
+Not primary key : 4 : address : int
+Not primary key : 5 : city : str
