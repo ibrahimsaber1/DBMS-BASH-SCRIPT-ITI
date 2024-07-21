@@ -38,7 +38,7 @@ create_table() {
         while [ $index -le $colnumber ]; do
             if [ $index -eq 1 ]; then
                 echo -e "===================================="
-                echo -e "The first column is the primary key"
+                echo -e "The first column is the primary key and its data type is int by default"
                 echo -e "===================================="
                 read -p "Enter column $index name: " colname
                 echo "primary key : $index : $colname : int" >> "metaData_$table_name"
