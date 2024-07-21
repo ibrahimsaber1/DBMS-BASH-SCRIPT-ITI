@@ -1,6 +1,0 @@
-general : Table Name : t1
-general : Number of Columns : 2
-primary key : 1 : id : int
-id:Not primary key : 2 : location : str
-location:
-=================
