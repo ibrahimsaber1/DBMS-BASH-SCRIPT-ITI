@@ -34,4 +34,3 @@ create_database() {
     fi
 }
 
-# create_database
