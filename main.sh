@@ -11,6 +11,8 @@ source ./options/createDataBase.sh
 source ./options/listDataBase.sh
 source ./options/createTable.sh
 source ./options/listTable.sh
+source ./options/selectFromTable.sh
+source ./options/updateTable.sh
 
 # Main Menu Function
 main_menu() {
