@@ -51,5 +51,4 @@ drop_table() {
     done
 }
 
-# Call the function
-drop_table
+

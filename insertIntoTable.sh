@@ -104,5 +104,3 @@ insert_into_table() {
     fi
 }
 
-# Call the function
-insert_into_table

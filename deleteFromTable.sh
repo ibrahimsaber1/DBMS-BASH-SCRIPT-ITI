@@ -46,4 +46,4 @@ delete_from_table() {
 
 }
 
-delete_from_table
+

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 connect_to_database() {
-    echo "Connect to Database"
+    echo "Connecting to Database"
     read -p "Enter database name: " db_name
     if [ -d "$db_name" ]; then
         echo "Connected to database $db_name"
@@ -39,4 +39,3 @@ connected_db_menu() {
     done
 }
 
-connect_to_database
