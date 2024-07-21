@@ -1,0 +1,5 @@
+general : Table Name : t5
+general : Number of Columns : 3
+primary key : 1 : id : int
+Not primary key : 2 : name : str
+Not primary key : 3 : age : int
