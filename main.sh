@@ -6,8 +6,10 @@ source ./options/dropDataBase.sh
 source ./options/dropTable.sh
 source ./options/insertIntoTable.sh
 source ./options/deleteFromTable.sh
+#-------------------------------------------
 source ./options/createDataBase.sh
 source ./options/listDataBase.sh
+source ./options/createTable.sh
 
 # Main Menu Function
 main_menu() {

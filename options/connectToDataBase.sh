@@ -29,6 +29,7 @@ connected_db_menu() {
             1) create_table $db_name ;;
             2) list_tables $db_name ;;
             3) drop_table $db_name ;;
+            5) create_table $db_name ;;
             4) insert_into_table $db_name ;;
             5) select_from_table $db_name ;;
             6) delete_from_table $db_name ;;
