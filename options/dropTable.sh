@@ -31,5 +31,4 @@ drop_table() {
         echo -e "\nTable $table_name not found\n"
     fi
 
-    read -p "Press any key to return to the menu..." -n1 -s
 }
