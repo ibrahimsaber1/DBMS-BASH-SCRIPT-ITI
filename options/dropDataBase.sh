@@ -21,11 +21,9 @@ drop_database() {
     if echo "$confirmation" | grep -iq "^yes$"; then
     # Attempt to remove the directory and handle errors
     if rm -r "$db_name" 2>/dev/null; then
-        echo "Database $db_name has been dropped."
-        echo "$(date): Successfully dropped database '$db_name'" >> "$log_file"
+        echo "$(date): Successfully dropped database '$db_name'" 
     else
-        echo "Failed to drop database $db_name. Please check your permissions or try again."
-        echo "$(date): Failed to drop database '$db_name'" >> "$log_file"
+        echo "$(date): Failed to drop database '$db_name'. Please check your permissions or try again." 
     fi
     else
         echo "Database drop canceled."

@@ -36,7 +36,8 @@ insert_into_table() {
     new_data=()
     
     # Iterate over the columns to get input and validate
-    for col in "${columns[@]}"; do
+    for i in "${!columns[@]}"; do
+        col=${columns[$i]}
         IFS=' ' read -r col_name col_type <<< "$col"
         
         while true; do
@@ -53,8 +54,15 @@ insert_into_table() {
                     fi
                     ;;
                 str)
-                    if ! [[ "$value" =~ ^[a-zA-Z0-9_]+$ ]]; then
+                    value=$(echo "$value" | tr ' ' '_')
+                    if ! [[ "$value" =~ ^[a-zA-Z_]+$ ]]; then
                         echo -e "\nInvalid value for $col_name. Expected string."
+                        continue
+                    fi
+                    ;;
+                bool)
+                    if ! [[ "$value" =~ ^(true|false)$ ]]; then
+                        echo -e "\nInvalid value for $col_name. Expected boolean (true or false)."
                         continue
                     fi
                     ;;
@@ -65,16 +73,17 @@ insert_into_table() {
             esac
             
             # Check if the column is a primary key and ensure it's unique
-            if grep -q "primary key : [0-9] : $col_name : $col_type" "metaData_$table_name"; then
+            if [ $i -eq 0 ]; then
+                # This is the primary key column
                 duplicate=false
-                for line in $data_lines; do
-                    existing_value=$(echo $line | cut -d':' -f$((${#new_data[@]} + 1)))
+                while IFS= read -r line; do
+                    existing_value=$(echo "$line" | cut -d':' -f1)
                     if [ "$existing_value" == "$value" ]; then
                         echo -e "\nDuplicate primary key value for $col_name."
                         duplicate=true
                         break
                     fi
-                done
+                done <<< "$data_lines"
                 if [ "$duplicate" == true ]; then
                     continue
                 fi
