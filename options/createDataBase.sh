@@ -30,6 +30,7 @@ create_database() {
     # If the database name does not start with an alphabetic character
     else
         echo -e "\nPlease enter a correct name\n"
+        echo -e "\n Name must be only string, start with an alphabetic character without spaces\n"
         create_database # call the function again
     fi
 }

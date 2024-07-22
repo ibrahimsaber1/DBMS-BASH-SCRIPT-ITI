@@ -2,14 +2,14 @@
 
 create_table() {
     echo -e "\nCreate Table\n"
-    read -p "Please enter the name of the table: " table_name
+    read -p "Please enter the name of the table(must start with alphabetic character): " table_name
     
     # Trim leading/trailing spaces
     table_name=$(echo "$table_name" | xargs)
     
     # Check if the table name is empty
     if [ -z "$table_name" ]; then
-        echo -e "\nPlease enter a correct name\n"
+        echo -e "\nPlease enter a correct name, name can not be empty\n"
         create_table # call the function again
 
     # Check if the table name contains spaces
@@ -52,10 +52,11 @@ create_table() {
                 colname=$(echo "$colname" | tr ' ' '_')
                 echo ""
                 echo -e "Type of column $colname: "
-                select datatype in "int" "str"; do
+                select datatype in "int" "str" "bool"; do
                     case $datatype in
                         int ) colType="int"; break;;
                         str ) colType="str"; break;;
+                        bool ) colType="bool"; break;;
                         * ) echo -e "\nWrong Choice!!!";;
                     esac
                 done

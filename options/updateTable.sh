@@ -65,6 +65,12 @@ update_table() {
                         continue
                     fi
                     ;;
+                bool)
+                    if ! [[ "$new_value" =~ ^(true|false)$ ]]; then
+                        echo -e "\nInvalid value for $col_name. Expected boolean (true or false)."
+                        continue
+                    fi
+                    ;;
                 *)
                     echo -e "\nUnknown data type $col_type for $col_name."
                     return

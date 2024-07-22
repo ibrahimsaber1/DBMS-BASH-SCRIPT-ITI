@@ -32,14 +32,13 @@ select_from_table() {
                 # Validate column number
                 if ! [[ "$col_num" =~ ^[0-9]+$ ]]; then
                     echo -e "\nInvalid column number. Please enter a valid number."
-                elif (( col_num < 1 || col_num > num_columns )); then
-                    echo -e "\nColumn number out of range. Please enter a number between 1 and $num_columns."
+                elif (( col_num < 1 || col_num > num_columns-1 )); then
+                    echo -e "\nColumn number out of range. Please enter a number between 1 and $(($num_columns-1))."
                 else
                     break
                 fi
             done
 
-            while true; do
                 read -p "Enter value to search for: " search_value
 
                 # Perform the search and store the result
@@ -51,9 +50,7 @@ select_from_table() {
                 else
                     echo -e "\nRows matching search criteria:"
                     echo "$search_result" | column -t -s ":"
-                    break
                 fi
-            done
             ;;
         *)
             echo -e "\nInvalid choice. Please try again."
