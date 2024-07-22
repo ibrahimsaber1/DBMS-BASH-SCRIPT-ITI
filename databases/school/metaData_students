@@ -1,0 +1,7 @@
+general : Table Name : students
+general : Number of Columns : 5
+primary key : 1 : id : int
+Not primary key : 2 : name : str
+Not primary key : 3 : age : int
+Not primary key : 4 : phone : int
+Not primary key : 5 : city : str
