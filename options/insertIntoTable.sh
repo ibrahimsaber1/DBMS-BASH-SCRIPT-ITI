@@ -53,6 +53,7 @@ insert_into_table() {
                     fi
                     ;;
                 str)
+                    value=$(echo "$value" | tr ' ' '_')
                     if ! [[ "$value" =~ ^[a-zA-Z0-9_]+$ ]]; then
                         echo -e "\nInvalid value for $col_name. Expected string."
                         continue
