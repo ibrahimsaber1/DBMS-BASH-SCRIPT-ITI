@@ -52,7 +52,7 @@ create_table() {
                 colname=$(echo "$colname" | tr ' ' '_')
                 echo ""
                 echo -e "Type of column $colname: "
-                select datatype in "int" "str" "bool"; do
+                select datatype in "int" "str" "bool" ; do
                     case $datatype in
                         int ) colType="int"; break;;
                         str ) colType="str"; break;;
