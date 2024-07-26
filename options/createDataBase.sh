@@ -7,6 +7,9 @@ create_database() {
     # Ensure the databases directory exists
     mkdir -p ./databases
 
+    # Replace spaces with underscores
+    db_name="${db_name// /_}"
+
     # Check if the database name is empty
     if [ -z "$db_name" ]; then
         echo -e "\nPlease enter a correct name\n"

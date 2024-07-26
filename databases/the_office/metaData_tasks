@@ -1,0 +1,5 @@
+general : Table Name : tasks
+general : Number of Columns : 3
+primary key : 1 : id : int
+Not primary key : 2 : task_name : str
+Not primary key : 3 : fineshed : bool

@@ -1,0 +1,8 @@
+general : Table Name : employees
+general : Number of Columns : 6
+primary key : 1 : id : int
+Not primary key : 2 : name : str
+Not primary key : 3 : age : int
+Not primary key : 4 : title : str
+Not primary key : 5 : salary : int
+Not primary key : 6 : us_citizen[D[D[D[D[C[C[C[C : bool

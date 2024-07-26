@@ -1,11 +1,14 @@
 #!/bin/bash
 
 # Source the individual function scripts
+# by david emad-------------------------------
 source ./options/connectToDataBase.sh
 source ./options/dropDataBase.sh
 source ./options/dropTable.sh
 source ./options/insertIntoTable.sh
 source ./options/deleteFromTable.sh
+#------------------------------------------------
+#----------by : Ibrahim Saber -----------------
 #-------------------------------------------
 source ./options/createDataBase.sh
 source ./options/listDataBase.sh
@@ -37,14 +40,6 @@ main_menu() {
     done
 }
 
-# Placeholder Functions for create_database and list_databases
-# create_database() {
-#     echo "Create Database"
-# }
-
-# list_databases() {
-#     echo "List Databases"
-# }
 
 # Start the main menu
 main_menu
