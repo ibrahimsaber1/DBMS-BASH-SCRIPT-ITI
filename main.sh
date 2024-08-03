@@ -24,7 +24,7 @@ main_menu() {
         echo "3. Connect To Database"
         echo "4. Drop Database"
         echo "5. Exit"
-        read -p "Enter your choice: " choice
+        read -r -p "Enter your choice: " choice
         case $choice in
             1) create_database ;;
             2) list_databases ;;
@@ -33,7 +33,7 @@ main_menu() {
             5) exit 0 ;;
             *) echo "Invalid choice!" ;;
         esac
-        read -p "Press any key to return to the main menu..." -n1 -s
+        read -r -p "Press any key to return to the main menu..." -n1 -s
     done
 }
 

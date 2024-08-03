@@ -2,7 +2,7 @@
 
 create_database() {
     echo "Create Database"
-    read -p "Enter the name of the database please: " db_name
+    read -r -p "Enter the name of the database please: " db_name
     
     # Ensure the databases directory exists
     mkdir -p ./databases

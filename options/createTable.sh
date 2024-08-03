@@ -2,7 +2,7 @@
 
 create_table() {
     echo -e "\nCreate Table\n"
-    read -p "Please enter the name of the table(must start with alphabetic character): " table_name
+    read -r -p "Please enter the name of the table(must start with alphabetic character): " table_name
     
     # Trim leading/trailing spaces
     table_name=$(echo "$table_name" | xargs)
@@ -28,7 +28,7 @@ create_table() {
         touch "$table_name.table"
         touch "metaData_$table_name"
 
-        read -p "Enter number of columns: " colnumber
+        read -r -p "Enter number of columns: " colnumber
         
         # Write metadata to the metadata file
         echo "general : Table Name : $table_name" > "metaData_$table_name"
@@ -40,14 +40,14 @@ create_table() {
                 echo -e "===================================="
                 echo -e "The first column is the primary key and its data type is int by default"
                 echo -e "===================================="
-                read -p "Enter column $index name: " colname
+                read -r -p "Enter column $index name: " colname
                 # Replace spaces with underscores in column name
                 colname=$(echo "$colname" | tr ' ' '_')
                 echo "primary key : $index : $colname : int" >> "metaData_$table_name"
                 printf "$colname:" >> "$table_name.table"
             else
                 echo ""
-                read -p "Enter column $index name: " colname
+                read -r -p "Enter column $index name: " colname
                 # Replace spaces with underscores in column name
                 colname=$(echo "$colname" | tr ' ' '_')
                 echo ""

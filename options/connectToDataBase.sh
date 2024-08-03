@@ -2,7 +2,7 @@
 
 connect_to_database() {
     echo "Connecting to Database"
-    read -p "Enter database name: " db_name
+    read -r -p "Enter database name: " db_name
     
     if [ -d "./databases/$db_name" ]; then
         echo "Connected to database $db_name"
@@ -29,7 +29,7 @@ connected_db_menu() {
         echo "6. Delete From Table"
         echo "7. Update Table"
         echo "8. Disconnect"
-        read -p "Enter your choice: " choice
+        read -r -p "Enter your choice: " choice
         case $choice in
             1) create_table $db_name ;;
             2) list_tables ;;  # No need to pass $db_name
@@ -41,6 +41,6 @@ connected_db_menu() {
             8) break ;;  # Exit the loop to disconnect
             *) echo "Invalid choice!" ;;
         esac
-        read -p "Press any key to return to the menu..." -n1 -s
+        read -r -p "Press any key to return to the menu..." -n1 -s
     done
 }

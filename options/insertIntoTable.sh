@@ -2,7 +2,7 @@
 
 insert_into_table() {
     echo -e "\nInsert into Table\n"
-    read -p "Enter the table name to insert into: " table_name
+    read -r -p "Enter the table name to insert into: " table_name
     
     # Trim leading/trailing spaces
     table_name=$(echo "$table_name" | xargs)
@@ -42,7 +42,7 @@ insert_into_table() {
         
         while true; do
             # Prompt the user to enter the value for the column
-            read -p "Enter value for $col_name ($col_type): " value
+            read -r -p "Enter value for $col_name ($col_type): " value
             value=$(echo "$value" | xargs)  # Trim leading/trailing spaces
             
             # Validate data type

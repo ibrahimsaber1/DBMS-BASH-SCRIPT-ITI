@@ -2,7 +2,7 @@
 
 drop_table() {
     echo -e "\nDrop Table\n"
-    read -p "Please enter the name of the table: " table_name
+    read -r -p "Please enter the name of the table: " table_name
 
     # Trim whitespace
     table_name=$(echo "$table_name" | xargs)

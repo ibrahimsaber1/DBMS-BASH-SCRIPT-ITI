@@ -1,6 +1,6 @@
 select_from_table() {
     echo -e "\nSelect From Table\n"
-    read -p "Please enter table name: " tname
+    read -r -p "Please enter table name: " tname
 
     # Trim leading/trailing spaces
     tname=$(echo "$tname" | xargs)
@@ -17,7 +17,7 @@ select_from_table() {
     # Ask user for selection type
     echo -e "\n1. Show entire table"
     echo "2. Select specific rows"
-    read -p "Enter your choice: " choice
+    read -r -p "Enter your choice: " choice
 
     case $choice in
         1)
@@ -27,7 +27,7 @@ select_from_table() {
             ;;
         2)
             while true; do
-                read -p "Enter column number to search (starting from 1): " col_num
+                read -r -p "Enter column number to search (starting from 1): " col_num
 
                 # Validate column number
                 if ! [[ "$col_num" =~ ^[0-9]+$ ]]; then
@@ -39,7 +39,7 @@ select_from_table() {
                 fi
             done
 
-                read -p "Enter value to search for: " search_value
+                read -r -p "Enter value to search for: " search_value
 
                 # Perform the search and store the result
                 search_result=$(awk -v col="$col_num" -v val="$search_value" -F: 'BEGIN {IGNORECASE=1} NR==1 {header=$0; next} $col ~ val' "$tname.table")

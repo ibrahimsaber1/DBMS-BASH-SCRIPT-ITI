@@ -2,7 +2,7 @@
 
 drop_database() {
     echo "Drop Database"
-    read -p "Enter database name to drop: " db_name
+    read -r -p "Enter database name to drop: " db_name
     db_name=$(echo "./databases/$db_name"  | xargs)  # Trim whitespace
 
     #Validating Database Name

@@ -2,7 +2,7 @@
 
 update_table() {
     echo -e "\nUpdate Table\n"
-    read -p "Please enter table name: " tname
+    read -r -p "Please enter table name: " tname
 
     # Check if table file exists
     if [ ! -f "$tname.table" ]; then
@@ -15,7 +15,7 @@ update_table() {
     sed '1d' "$tname.table" | awk -F: '{print $0}'
 
     # Prompt for primary key to update
-    read -p "Enter the primary key value of the row you want to update: " pk
+    read -r -p "Enter the primary key value of the row you want to update: " pk
 
     # Check if primary key exists
     row=$(grep "^$pk:" "$tname.table")
@@ -44,7 +44,7 @@ update_table() {
         
         # Prompt user for new value
         while true; do
-            read -p "Set value of $col_name (current: $current_value, enter to keep): " new_value
+            read -r -p "Set value of $col_name (current: $current_value, enter to keep): " new_value
 
             # If new_value is empty, keep current value
             if [ -z "$new_value" ]; then
