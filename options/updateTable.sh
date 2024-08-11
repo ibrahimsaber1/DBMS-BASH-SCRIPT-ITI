@@ -24,7 +24,7 @@ update_table() {
         return
     fi
 
-    # Extract current row data
+    # Extract current row data --------- IFS >> Internal Field Separator 3lshan afsal b : ben el str :)
     IFS=':' read -r -a fields <<< "$row"
 
     # Check if metadata file exists
@@ -33,7 +33,7 @@ update_table() {
         return
     fi
 
-    # Read column definitions from metadata
+    # Read column definitions from metadata -- NR>2 hy3ady ol 2 lines el header w === w hybda b el meta data 3 tol :)
     schema=$(awk -F' : ' 'NR>2 {print $3" "$4}' "metaData_$tname")
     IFS=$'\n' read -rd '' -a columns <<< "$schema"
 

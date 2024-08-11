@@ -66,7 +66,7 @@ delete_from_table() {
             echo "Are you sure you want to delete row $row_number? (yes/no)"
             read confirmation
             
-            if echo "$confirmation" | grep -iq "^yes$"; then
+            if echo "$confirmation" | grep -iq "^yes$"; then   #i for case 
                 # Delete the specified row
                 sed -i "${row_number}d" "$table_name.table"
                 echo "Row $row_number has been deleted from $table_name."

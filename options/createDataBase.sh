@@ -4,7 +4,7 @@ create_database() {
     echo "Create Database"
     read -r -p "Enter the name of the database please: " db_name
     
-    # Ensure the databases directory exists
+    # Ensure the databases directory exists and if not it will not make an error :)
     mkdir -p ./databases
 
     # Replace spaces with underscores
@@ -16,9 +16,9 @@ create_database() {
         create_database # call the function again
     
     # Check if the database name contains spaces
-    elif [[ "$db_name" = *[[:space:]]* ]]; then
-        echo -e "\nDatabase name cannot contain spaces\n"
-        create_database # call the function again
+    # elif [[ "$db_name" = *[[:space:]]* ]]; then
+    #     echo -e "\nDatabase name cannot contain spaces\n"
+    #     create_database # call the function again
     
     # Check if the directory already exists in the databases directory
     elif [ -d "./databases/$db_name" ]; then
