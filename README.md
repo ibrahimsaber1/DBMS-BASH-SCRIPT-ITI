@@ -83,11 +83,11 @@ This project aims to develop a simple Database Management System (DBMS) using Ba
 2. Open a terminal and navigate to the directory where you want to clone the repository.
 3. Run the following command:
    ```bash
-   git clone <repository-url>
+   git clone <https://github.com/ibrahimsaber1/DBMS-BASH-SCRIPT-ITI.git>
    ```
 4. Navigate to the project directory:
    ```bash
-   cd <repository-name>
+   cd <DBMS-BASH-SCRIPT-ITI>
    ```
 
 ## How to Run
