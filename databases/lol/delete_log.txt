@@ -1,3 +1,0 @@
-21 يول, 2024 EEST 03:56:17 م: Deleted row 4 from t1
-Mon, Jul 22, 2024  3:03:52 PM: Deleted row 4 from t5
-Mon, Jul 22, 2024  3:30:30 PM: Deleted row 5 from t5
