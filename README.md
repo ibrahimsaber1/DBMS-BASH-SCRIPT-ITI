@@ -21,7 +21,7 @@ This project aims to develop a simple Database Management System (DBMS) using Ba
 - **Delete From Table**: Delete specific rows from a specified table.
 - **Update Table**: Update data in a specified table.
 
-## Usage
+## Usage 
 
 ### Main Menu
 
